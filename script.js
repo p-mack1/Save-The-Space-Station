@@ -25,3 +25,19 @@ function restoreOxygen() {
     oxygenBtn.disabled = true;
 }
 oxygenBtn.addEventListener('click', restoreOxygen);
+
+const commsBtn = document.querySelector('#commsBtn');
+const commsStatus = document.querySelector('#commsStatus');
+const commsPanel = document.querySelector('#commsPanel');
+let commsOnline = false;
+function connectComms() {
+    if (!powerOnline || !oxygenOnline) {
+        commsStatus.textContent = 'POWER + OXYGEN REQUIRED';
+        return;
+    }
+    commsOnline = true;
+    commsStatus.textContent = 'SIGNAL ESTABLISHED';
+    commsPanel.classList.add('online');
+    commsBtn.disabled = true;
+}
+commsBtn.addEventListener('click', connectComms);
