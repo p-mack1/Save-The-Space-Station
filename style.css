@@ -43,3 +43,12 @@ button {
 .warning {
     border-color: #ffb66e;
 }
+
+#powerStatus {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#powerBtn {
+    background: #a5e6ff;
+}
