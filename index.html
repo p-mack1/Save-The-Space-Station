@@ -25,6 +25,22 @@
             <p id="commsStatus">OFFLINE</p>
             <button id="commsBtn">Contact Mission Control</button>
         </section>
+        <section id="tempPanel" class="panel">
+            <h2>Temperature Control</h2>
+            <label for="tempInput">Set temperature (°F)</label>
+            <input id="tempInput" type="number" min="50" max="100" value="75">
+            <button id="tempBtn">Apply Setting</button>
+            <p id="tempStatus">Current target: 75°F</p>
+        </section>
+        <section class="panel">
+            <h2>Mission Event Log</h2>
+            <ol id="eventLog"></ol>
+        </section>
+        <section class="panel">
+            <h2>Emergency Countdown</h2>
+            <p><strong id="timerText">90</strong> seconds remaining</p>
+            <button id="timerBtn">Start Countdown</button>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>

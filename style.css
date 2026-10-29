@@ -60,3 +60,24 @@ button {
 #commsBtn {
     background: #d7c2ff;
 }
+
+#tempInput {
+    padding: 10px;
+    max-width: 100%;
+}
+
+#tempBtn {
+    background: #ffe0a5;
+}
+
+#eventLog {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-left: 25px;
+    line-height: 1.6;
+}
+
+#timerText {
+    font-size: 2rem;
+    color: #ffca87;
+}
