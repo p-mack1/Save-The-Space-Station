@@ -96,3 +96,50 @@ function startCountdown() {
     logEvent('Countdown started');
 }
 timerBtn.addEventListener('click', startCountdown);
+
+const missionResult = document.querySelector('#missionResult');
+const finishBtn = document.querySelector('#finishBtn');
+const resetBtn = document.querySelector('#resetBtn');
+function checkMission() {
+    if (missionOver) {
+        missionResult.textContent = 'Mission already ended';
+        return;
+    }
+    if (powerOnline && oxygenOnline && commsOnline && temperature >= 65 && temperature <= 80) {
+        missionOver = true;
+        clearInterval(timerId);
+        timerId = null;
+        missionResult.textContent = 'MISSION SAVED!';
+        missionResult.classList.add('success');
+        logEvent('Mission saved');
+    } else {
+        missionResult.textContent = 'Some systems are not ready';
+    }
+}
+function resetMission() {
+    clearInterval(timerId)
+    timerId = null;
+    missionOver = false;
+    secondsLeft = 90;
+    timerText.textContent = secondsLeft;
+    timerBtn.disabled = false;
+    powerOnline = oxygenOnline = commsOnline = false;
+    temperature = 75;
+    tempInput.value = 75;
+    powerStatus.textContent = 'OFFLINE';
+    oxygenStatus.textContent = 'OFFLINE';
+    commsStatus.textContent = 'OFFLINE';
+    tempStatus.textContent = 'Current target : 75°F';
+    powerBtn.disabled = oxygenBtn.disabled = commsBtn.disabled = false;
+    powerPanel.classList.remove('online');
+    oxygenPanel.classList.remove('online');
+    commsPanel.classList.remove('online');
+    missionResult.classList.textContent = 'Mission in progress';
+    document.querySelector('#briefing').textContent =
+       'Station systems are offline.';
+    events.length = 0;
+    eventLog.replaceChildren();
+    logEvent('Mission restarted');
+}
+finishBtn.addEventListener('click', checkMission);
+resetBtn.addEventListener('click', resetMission);

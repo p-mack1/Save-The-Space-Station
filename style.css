@@ -81,3 +81,16 @@ button {
     font-size: 2rem;
     color: #ffca87;
 }
+
+#finishBtn {
+    background: #a2e5b4;
+}
+
+#resetBtn {
+    background: #e5eaf0;
+}
+
+.success {
+    border-color: #6ee8ae;
+    background: #173a32;
+}
